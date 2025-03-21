@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>LLMs Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLMs</title>
         
     <!-- 推荐图标声明顺序 -->
     <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
@@ -81,7 +82,13 @@
         .second-container {
             margin-top: 40px; /* 增加两行空格 */
         }
-          /* 居中 */
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* 在小屏幕上显示为一列 */
+            }
+        }
+        /* 居中 */
         .center {
         text-align: center;
     }
@@ -235,9 +242,22 @@
     <div class="container second-container">
     </div>    
 
-    <footer class="center">
-        <p style="color: red;">&copy; 2025 WUYU All rights reserved</p>
+    <!-- 新增底部版权信息 -->
+    <footer style="text-align: center; margin-top: 40px;">
+        <style>
+            @keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 0.3; }
+                100% { opacity: 1; }
+            }
+            .blink-text {
+                color: red;
+                font-size: 18px;
+                animation: blink 1.5s infinite;
+            }
+        </style>
+        <span class="blink-text">&copy;WUYU</span>
+        <span style="font-size: 14px;"> All rights reserved</span>
     </footer>
-
 </body>
 </html>

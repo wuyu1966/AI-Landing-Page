@@ -17,7 +17,7 @@
     <!-- PWA 支持 -->
     <link rel="manifest" href="/site.webmanifest">
     
-      <style>
+    <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 20px; 
@@ -71,7 +71,7 @@
         /* Grid 布局 */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 两列等宽 */
+            grid-template-columns: repeat(3, 1fr); /* 三列等宽 */
             gap: 20px; /* 列之间的间距 */
         }
         .column {
@@ -90,12 +90,12 @@
         }
         /* 居中 */
         .center {
-        text-align: center;
-    }
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- 第一行：LLMs 和 LLMs 内地 -->
+    <!-- 第一行：LLMs, LLMs 内地, Media -->
     <div class="container">
         <!-- LLMs 部分 -->
         <div class="column">
@@ -178,11 +178,8 @@
                 </a></li>
             </ul>
         </div>
-    </div>
 
-    <!-- 第二行：LLMs1 和 LLMs2 -->
-    <div class="container second-container">
-        <!-- LLMs1 部分 -->
+        <!-- Media 部分 -->
         <div class="column">
             <h2>Media</h2>
             <ul>
@@ -207,8 +204,11 @@
                 </a></li>
             </ul>
         </div>
+    </div>
 
-        <!-- LLMs2 部分 -->
+    <!-- 第二行：Tools, OptionA, OptionB -->
+    <div class="container second-container">
+        <!-- Tools 部分 -->
         <div class="column">
             <h2>Tools</h2>
             <ul>
@@ -237,10 +237,43 @@
                 </a></li>
             </ul>
         </div>
-    </div>
 
-    <div class="container second-container">
-    </div>    
+        <!-- OptionA 部分 -->
+        <div class="column">
+            <h2>OptionA</h2>
+            <ul>
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 1</span>
+                </a></li>
+                
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 2</span>
+                </a></li>
+
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 3</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <!-- OptionB 部分 -->
+        <div class="column">
+            <h2>OptionB</h2>
+            <ul>
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 1</span>
+                </a></li>
+                
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 2</span>
+                </a></li>
+
+                <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 3</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- 新增底部版权信息 -->
     <footer style="text-align: center; margin-top: 40px;">
@@ -261,3 +294,6 @@
     </footer>
 </body>
 </html>
+
+
+

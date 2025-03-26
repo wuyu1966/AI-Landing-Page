@@ -71,7 +71,7 @@
         /* Grid 布局 */
         .container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 三列等宽 */
+            grid-template-columns: repeat(4, 1fr); /* 四列等宽 */
             gap: 20px; /* 列之间的间距 */
         }
         .column {
@@ -95,7 +95,7 @@
     </style>
 </head>
 <body>
-    <!-- 第一行：LLMs, LLMs 内地, Media -->
+    <!-- 第一行：LLMs, LLMs 内地, Media, Placeholder -->
     <div class="container">
         <!-- LLMs 部分 -->
         <div class="column">
@@ -204,9 +204,27 @@
                 </a></li>
             </ul>
         </div>
+
+        <!-- Placeholder 部分 -->
+        <div class="column">
+            <h2>Placeholder</h2>
+            <ul>
+                <li><a href="#">
+                    <span class="brand-text">Link 1</span>
+                </a></li>
+                
+                <li><a href="#">
+                    <span class="brand-text">Link 2</span>
+                </a></li>
+
+                <li><a href="#">
+                    <span class="brand-text">Link 3</span>
+                </a></li>
+            </ul>
+        </div>
     </div>
 
-    <!-- 第二行：Tools, OptionA, OptionB -->
+    <!-- 第二行：Tools, OptionA, OptionB, Placeholder -->
     <div class="container second-container">
         <!-- Tools 部分 -->
         <div class="column">
@@ -273,6 +291,24 @@
                 </a></li>
 
                 <li><a href="#" target="_blank">
+                    <span class="brand-text">Link 3</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <!-- Placeholder 部分 -->
+        <div class="column">
+            <h2>Placeholder</h2>
+            <ul>
+                <li><a href="#">
+                    <span class="brand-text">Link 1</span>
+                </a></li>
+                
+                <li><a href="#">
+                    <span class="brand-text">Link 2</span>
+                </a></li>
+
+                <li><a href="#">
                     <span class="brand-text">Link 3</span>
                 </a></li>
             </ul>

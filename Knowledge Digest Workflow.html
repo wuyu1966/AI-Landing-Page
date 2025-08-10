@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识处理工作流</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #E0E0E0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 10px 10px;
+            margin: 0;
+        }
+
+        .workflow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px; 
+            width: 100%;
+            max-width: 1800px;
+        }
+
+        .main-title {
+            color: #FFFFFF;
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 0px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 45px;
+            width: 100%;
+        }
+        
+        .row-top {
+            position: relative;
+            height: 130px; 
+            display: block;
+        }
+
+        .module {
+            background-color: #252526ba;
+            border-radius: 10px;
+            padding: 55px 20px 25px; 
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row-top .module {
+            position: absolute;
+            top: 0;
+        }
+        
+        .module-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #4dabf7;
+            font-size: 1.1em;
+        }
+
+        .text-block {
+            background-color: #333333;
+            border: 1px solid #555;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+            display: block;
+            text-decoration: none;
+            color: #E0E0E0;
+            font-size: 0.7em;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .module > .text-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-block:not(.no-link):hover {
+            background-color: #4f4f4f;
+            border-color: #4dabf7;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 18px;
+            margin: 0;
+        }
+        
+        li {
+           padding-left: 0px;
+           position: relative;
+           margin-bottom: 8px;
+        }
+
+        li:last-child { margin-bottom: 0; }
+
+        li::before {
+            content: '•';
+            position: absolute;
+            left: -5px;
+            color: #fcc419;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        
+        li ul { margin-top: 8px; }
+
+        /* --- 模块宽度和位置 --- */
+        #obsidian { 
+            width: 380px; 
+            left: 50%;
+            transform: translateX(-50%); /* 精确居中 */
+        }
+        #perfect-note { 
+            width: 140px; 
+            left: calc(50% + 280px); /* 放置在中心模块右侧 */
+        }
+        #summarize { width: 300px; }
+        #predict { width: 380px; }
+        #extend-search { width: 420px; }
+    </style>
+
+    <base target="_blank">
+
+</head>
+<body>
+
+    <div class="workflow-container">
+        <h1 class="main-title">知识处理工作流</h1>
+
+        <div class="row row-top">
+            <div id="obsidian" class="module">
+                <div class="module-title">剪藏至 Obsidian </div>
+                    <div class="text-block no-link">完善：标签 / 链接</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="predict" class="module">
+                <div class="module-title">总结归纳</div>
+                <a href="https://poe.com/Summary_toPPT_ZH" class="text-block" style="border: 1.5px solid rgb(255, 255, 255);">忠实原文提炼总结</a>   
+                <a href="#" class="text-block">生成 C-Suite Briefing Deck</a>
+                <a href="https://poe.com/Summary_asConsultant" class="text-block"  style="border: 1px solid rgb(255, 255, 255);">像咨询师一样总结</a>
+                <a href="#" class="text-block">“结构等级方式”重写</a>
+                <a href="#" class="text-block">结构化一分钟简报</a>
+            </div>
+            <div id="predict" class="module">
+                <div class="module-title">分析论证</div>
+                <a href="#" class="text-block">提炼核心洞察</a>
+                <a href="#" class="text-block">逻辑分析师</a>
+                <a href="#" class="text-block">
+                    三个魔法问题：<br>
+                    识别主张 / 识别论据 / 检验连接
+                </a>
+                <a href="#" class="text-block">提炼独特观点，及其论证</a>
+            </div>
+            <div id="predict" class="module">
+                <div class="module-title">搜索与核查</div>
+                <a href="https://poe.com/Search-with-Focus" class="text-block" style="border: 1.5px solid rgb(255, 255, 255);">
+                    支持 / 反对 / 利益相关方的观点<br>
+                    专家意见 / 媒体观点<br>
+                    观点演变的时间线、影响因素<br>
+                    历史沿革的间线、关键点<br>
+                    先例事件和相似之处<br>
+                </a>
+                <a href="#" class="text-block">交叉验证</a>
+                <a href="#" class="text-block">证据链核查</a>
+                <a href="#" class="text-block">探索进一步探讨的问题</a>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div id="predict" class="module">
+                <div class="module-title">预测推演（其他新闻）</div>
+                <a href="https://poe.com/Strategic-Foresight" class="text-block" style="border: 1.5px solid rgb(255, 255, 255);">
+                    核心假设 / 驱动因素 <br>
+                    趋势 / 宏观环境<br>
+                    直接影响 / 级联效应 <br>
+                    预测轨迹 / 推演场景 / 战略路标<br>
+                </a>
+            </div>
+            <div id="predict" class="module">
+                <div class="module-title">行业新闻</div>
+                <a href="https://poe.com/Strategic-Alert-Tel" class="text-block" style="border: 1.5px solid rgb(255, 255, 255);">
+                    行业新闻战略预警速报 <br>
+                 </a>
+                <a href="https://poe.com/News-Digest-Critical" class="text-block"  style="border: 1.5px solid rgb(255, 255, 255);">
+                分析师犀利解读行业新闻<br>
+                （对抗性分析备忘录） <br>
+                </a>
+            </div>
+            <div id="predict" class="module">
+                <div class="module-title">多模输出</div>
+                <a href="https://poe.com/Strategic-Foresight" class="text-block">
+                    生成PodCast <br>
+                    生成MindMap<br>
+                    生成PPT<br>
+                    生成HTML<br>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

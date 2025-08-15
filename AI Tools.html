@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>AI_OU</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="74f61fbf-9826-4e7f-9ca5-a85a12d01e6d" class="page sans"><header><h1 class="page-title">AI_OU</h1><p class="page-description"></p></header><div class="page-body"><p id="e6f14677-9fe1-422c-84c0-5bb3f6105d41" class=""><a href="https://chat.openai.com/chat">ChatGPT</a></p><p id="9cef02b6-2887-461b-9baa-5033cab64382" class=""><a href="https://bard.google.com/">Google Bard</a></p><p id="ec431b17-1d25-4dca-9f8e-cfb8a40fc66c" class=""><a href="https://claude.ai/chat/7e6cda4b-e744-4791-ac12-c2866c08235f">Claude</a></p><p id="fa946d55-7b3a-4ac2-ad17-b940dafb9b87" class=""><a href="https://poe.com/login?redirect_url=%2F">Poe - Fast, Helpful AI Chat</a></p><p id="90e5ae74-40e6-4daf-9c3d-d0c3212b66ae" class=""><a href="https://www.perplexity.ai/">Perplexity AI-answer engine</a></p><h3 id="744452c8-0407-4197-96ca-7227139eb9c6" class="">Writing</h3><p id="19f681a4-e2c3-4202-8311-85f4a1c1463e" class=""><a href="https://quillbot.com/?utm_medium=paid_search&amp;utm_source=google&amp;utm_campaign=paraphrase_premium&amp;campaign_type=performance_max">推荐QuillBot AI=Paraphrasing Tool</a></p><p id="ea5037fb-abc3-464c-b1ae-1a42f7fef8eb" class=""><a href="https://app.wordtune.com/editor?product=write&amp;platform=editor">推荐Wordtune Editor</a></p><p id="e31b07e8-4803-4182-9f87-6fe27af33886" class=""><a href="https://www.grammarly.com/p?q=brand&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=brand_f1&amp;utm_content=486649398671&amp;utm_term=grammarly&amp;matchtype=e&amp;placement=&amp;network=g&amp;gclid=Cj0KCQiAvP6ABhCjARIsAH37rbSK3dp6czTktqj6jCxjaQBMlaNvKd7IdbRRR1bm7p7JpWi_3lNkqZIaAubzEALw_wcB&amp;gclsrc=aw.ds">推荐Grammarly</a></p><p id="5d9528b6-4c20-4e5b-8dab-a11cf4202ed0" class=""><a href="https://app.copy.ai/">Copy.ai</a></p><p id="1c6a217f-e820-4a0f-9743-f86d629ea035" class=""><a href="https://www.hoppycopy.co/">Hoppy Copy: AI Email Marketing Copywriting Platfo…</a></p><p id="3838e98e-ebeb-443c-b7c4-b4d7ab0941db" class=""><a href="https://writesonic.com/?via=dennis41&amp;gclid=Cj0KCQiAorKfBhC0ARIsAHDzslvCmIuUBq95L8WhV7k8rsgOsdeE67J23gjIZV61Tqd5ryKFEgTnI0QaAsx0EALw_wcB">Writesonic - Best AI Writer, Copywriting &amp; Paraph…</a></p><p id="85ec5a1d-fd8f-4e32-8643-7ee38bbf6933" class=""><a href="https://www.paraphrase-online.com/">Paraphrase Online - Best Free Paraphrasing Tool</a></p><p id="96520ec8-7bdd-41ba-968f-be53e0c598f8" class=""><a href="https://www.emailmagic.ai/">EmailMagic AI</a></p><p id="fcad4844-b8ad-4966-b138-4085a2886107" class=""><a href="https://blaze.today/">Text Blaze: Snippets and Templates for Chrome</a></p><h3 id="1c04c961-1573-4ab7-9e18-4f68034c2480" class="">TTS</h3><p id="4e4bb111-32de-4689-baa2-6811d03a644b" class=""><a href="https://ttsmaker.com/">推荐Free Text to Speech Online - TTSMaker</a></p><p id="697b35ff-0d20-43f1-bdb9-419a4f2243d1" class=""><a href="https://www.text-to-speech.online/">推荐Free Text to Speech Online Converter Tools</a></p><p id="00b30b31-7c2b-4713-a88d-72bea71296be" class=""><a href="https://beta.elevenlabs.io/">ElevenLabs - Prime AI Text to Speech | Voice Clon…</a></p><p id="0c795d2f-a7f8-43e9-8c37-3a644fbdd8c1" class=""><a href="https://www.naturalreaders.com/index.html">AI Voices - NaturalReader Home</a></p><p id="45bbcc76-cb11-40b5-a9ea-cc442f8d417a" class=""><a href="https://speechify.com/?source=fb-for-mobile&amp;via=ali">Best Free Text To Speech Voice Reader | Speechify</a></p><h3 id="a3181e13-1e79-48e2-8806-0bd5e6b5c614" class="">Meeting</h3><p id="206411bf-8594-4583-94cd-19c6c53883ee" class=""><a href="https://otter.ai/">推荐Otter.ai - Voice Meeting Notes &amp; Real-time Transc…</a></p><p id="3868e33b-8cef-4f7b-9728-c2ce11acb299" class=""><a href="https://fireflies.ai/?gr_pk=7JwP&amp;gr_uid=Ez0A&amp;gclid=Cj0KCQjwuLShBhC_ARIsAFod4fJyfVprrUoGGzRMmTT2-TLxgKEvO7oqXVbBtTX5CW8xu1HyYx5UZ5EaAlr3EALw_wcB">Fireflies.ai | AI notetaker to transcribe, summar…</a></p><p id="f4d4af96-780d-49fb-a6fe-ba00b9a954f1" class=""><a href="https://grain.com/">Grain | AI-powered Meeting Recording For All Teams</a></p><p id="078c939b-0c19-47b6-8c7a-e2b818ae8b46" class=""><a href="https://fathom.video/">Fathom - Never take notes on a Zoom call again</a></p><p id="fd5cf384-ba5d-41bb-9756-e77b6d86b0ee" class=""><a href="https://tldv.io/">AI-Powered Meeting Recorder for Zoom and Google M…</a></p><p id="b3febda0-8a87-4169-8ca6-9e20a83ee508" class=""><a href="https://supernormal.com/">Supernormal - AI That Writes Your Meeting Notes</a></p><h3 id="25d78142-1ae1-488d-b9b4-a8ab1439c1f4" class="">Reading Assistant</h3><p id="2f1ab734-311a-46c2-afe0-8814369ba0f4" class=""><a href="https://www.chatpdf.com/">推荐ChatPDF - Chat with any PDF!</a></p><p id="b853f0c3-5b53-4e5a-9672-67dc719f1f7c" class=""><a href="https://typeset.io/">推荐SciSpace</a></p><p id="0357a9bb-8025-42ce-91ec-ca8b42e302fa" class=""><a href="https://www.explainpaper.com/">Explainpaper</a></p><p id="945d2df8-3fbf-45ed-826a-55c0f8833da4" class=""><a href="https://chatdoc.com/">ChatDOC - Chat with your documents</a></p><p id="e71a1746-06b4-4a44-b6ed-1c2ef434a0f9" class=""><a href="https://askwise.ai/home">AskWise</a></p><p id="70143a53-ba51-4d1b-bc4a-d52b83a6edc7" class=""><a href="https://tldrthis.com/">TLDR This - Article Summarizer &amp; Online Text Summ…</a></p><p id="2c2a6b51-114b-4aeb-8783-f52d554296ce" class=""><a href="https://askyourpdf.com/">Ask Your PDF - Interactive PDF Conversations powe…</a></p><p id="e6ae62a5-a4f5-428c-820c-6df6cf98c77e" class=""><a href="https://www.pdfgpt.io/plan">PDFGPT.IO - Experience PDFs like never before - chat with PDF for quick and easy answers!</a></p><h3 id="abd75c6e-d31b-4bda-8033-adba72d7fbc5" class="">Image</h3><p id="bac9fe1f-da30-4646-bb56-d2ccfd70bb6e" class=""><a href="https://clipdrop.co/">推荐ClipDrop</a></p><p id="c580e404-cffb-4b72-ae74-f92cac2341ed" class=""><a href="https://stablediffusionweb.com/">推荐Stable Diffusion</a></p><p id="378de92f-5cd0-4ffb-9c1c-fa1633e62191" class=""><a href="https://www.freepik.com/ai/image-generator">推荐freepik - Free Text to Image</a></p><p id="3a9434fa-f0f7-46b6-abeb-8bf8d589200c" class=""><a href="https://www.adobe.com/sensei/generative-ai/firefly.html">推荐Adobe Firefly</a></p><p id="f2124b56-ec7e-4f40-b34c-0e398b721ecd" class=""><a href="https://civitai.com/">推荐Civitai | Stable Diffusion models, embeddings, LoRAs and more</a></p><p id="e30dfabb-4ceb-40e6-9765-6732b850a559" class=""><a href="https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F">推荐Midjourney</a></p><p id="c71b0423-251a-49d9-b81a-102be9616d1a" class=""><a href="https://leonardo.ai/">推荐Leonardo.ai</a></p><p id="19dfb1d9-8ed2-42d0-a2ec-037f5434ca7d" class=""><a href="https://pixlr.com/ai/ai-image-generator/">推荐PIXLR - AI Image Generator</a></p><h3 id="cfca6e21-3361-47a7-9546-95e42958de8e" class="">PPT</h3><p id="8926b712-2d49-4b36-b73c-92bc3de937ad" class=""><a href="https://gamma.app/">推荐Gamma</a></p><p id="f3aa1339-bd3b-4981-aa3e-97f0625891ee" class=""><a href="https://beta.tome.app/">推荐Tome - The AI-powered storytelling format</a></p><p id="f3d7a134-750e-4a0a-814d-85e84c273576" class=""><a href="https://pitch-ai.github.io/">推荐Pitch.AI</a></p><p id="2e5fedca-aa79-4a5f-9efd-8ee9fa45f342" class=""><a href="https://www.beautiful.ai/">推荐.beautiful.ai-Presentation Software</a></p><h3 id="934b4666-f8c9-4f58-a2a8-493edd80adf9" class="">MindMap</h3><p id="3a8ea562-45ea-4798-abbe-514ae9b6370f" class=""><a href="https://gitmind.com/">GitMind - AI Powered Mind Map, Flowchart, Whitebo…</a></p><p id="0b61daa9-893a-42b6-8f13-0e53237c6cd6" class=""><a href="https://whimsical.com/ai-mind-maps">Whimsical AI for Mind Maps</a></p><p id="09468d9d-6ca2-4ac6-b882-cb0498938e39" class=""><a href="https://www.taskade.com/templates/ai/mind-map-generator">AI Mind Map Generator Template | Taskade</a></p><p id="30fec4d5-b8c2-487c-9c5c-a84722c1e415" class=""><a href="https://www.mymap.ai/?redirect=superusapp">MyMap.AI: Map Out Ideas with AI</a></p><h3 id="7c50ebaa-518a-493c-9de2-954721fb77fe" class="">Search</h3><p id="9f102903-1b72-44c8-8973-8be0a94351ba" class=""><a href="https://you.com/">推荐YOU AI-The AI Search Engine You Control</a></p><p id="59b0cdc5-0440-472d-a6c0-a35dd36d91e9" class=""><a href="https://www.immerse.zone/">Reverse image search engine powered by the best AI understanding - immerse</a></p><p id="5ef95c06-8328-4695-8e5a-6d5d016810b6" class=""><a href="https://metaphor.systems/">Metaphor</a></p><p id="33022170-ea39-4137-a5d7-386f21b739cc" class=""><a href="https://www.wolframalpha.com/">Wolfram|Alpha: Computational Intelligence</a></p><p id="823f20ff-bb82-4275-8956-0fddf7b4bd06" class=""><a href="https://twelvelabs.io/">Twelve Labs</a></p><p id="d2d69c2a-7663-47a1-9794-5794bda018c5" class=""><a href="https://vectara.com/">GenAI Conversational Search Platform - Vectara</a></p><p id="6835e120-702e-44d9-8e77-7b51ec599857" class=""><a href="https://gptgo.ai/?hl=en">GPTGO - ChatGPT Free combined Search Engine</a></p><h3 id="3f01e16c-67b4-48a8-917e-5bc676c77149" class="">YouTube</h3><p id="9d118968-f012-4819-ba6d-de3bdfbf0c73" class=""><a href="https://traw.ai/home">推荐traw.ai-YouTube Videos wi…</a></p><p id="b2f7d2ef-49f1-4c5f-b8f0-4254321f3f83" class=""><a href="https://eightify.app/">YouTube Video Summaries with Eightify AI ChatGPT</a></p><p id="6f3aab96-4315-4e21-a043-cb67d7b63591" class=""><a href="http://eightify.ai/">eightify.ai</a></p><p id="209f3c5f-9fda-406f-9997-310ff97c1cc5" class=""><a href="https://www.summarize.tech/">summarize.tech: AI-powered video summaries</a></p><h3 id="18552a88-ffd7-446f-aee1-e2437f26bfef" class="">Investment</h3><p id="eb8a0263-e364-4700-b53a-3e56dc30b43c" class=""><a href="https://public.com/alpha">Meet Alpha - Your investing co-pilot. Powered by…</a></p><p id="a8a13377-8d7f-4eac-86ea-083bfb59963c" class=""><a href="https://finchat.io/">FinChat.io | AI Chat for Investors</a></p><p id="1b41d2ba-6e0e-41b5-bac7-94d214f9c1d2" class=""><a href="https://trendspider.com/">Smart Trading Software by TrendSpider | Charts -…</a></p><p id="b240263c-3899-40a7-8d0e-0c279aa5a756" class=""><a href="https://polygon.io/">Polygon.io - Stock Market Data APIs</a></p><p id="bd146a77-240f-4d24-8f4a-912228c18b06" class=""><a href="https://portfolioslab.com/">PortfoliosLab - financial tools for smart investo…</a></p><p id="6e335582-2619-43e4-a84c-bd37b6f412b8" class=""><a href="https://wallet.ai/">wallet.AI</a></p><p id="d0258937-897a-4b4b-8591-23897f2009d2" class=""><a href="https://www.tipranks.com/stocks/ai">C3ai (AI) Stock Price, Quote, News &amp; Analysis - T…</a></p><p id="7579dd7f-32dd-42cd-a399-b6571ef10f86" class=""><a href="https://www.beebee.ai/">www.beebee.ai</a></p><p id="833a900f-7f8a-4383-93a5-c8b2cf12b64a" class=""><a href="https://aiforalpha.com/">Ai For Alpha - Ai-powered investment decision</a></p><h3 id="9f6a5820-6838-4de6-a5fc-d7327405e7ef" class="">Learning</h3><p id="4da65185-5986-408e-b2db-b4986eb44eec" class=""><a href="https://speakandimprove.com/">推荐Speak &amp; Improve by Cambridge</a></p><p id="e678c859-6b13-4bc1-b1da-9d14a76e7d21" class=""><a href="https://aivalley.ai/albus/">Albus AI | AI Valley</a></p><p id="153bc2cf-b09e-41ce-97e4-5ab30ca4db86" class=""><a href="https://www.albus.org/">Albus, AI App, explore any topic - powered by Cha…</a></p><p id="8efff896-90bb-4c84-b8a6-8930692921fd" class=""><a href="https://mockingbird.studio/login">Mockingbird</a></p><p id="90672176-860e-4841-b130-0653b1c7b15a" class=""><a href="https://scisummary.com/?ssref=twitter-tja">Use AI To Summarize Scientific Articles - SciSumm…</a></p><p id="c7cf6951-ba92-4e7d-b5d7-344cc12f8ca1" class=""><a href="https://shiken.ai/chat-ai">Shiken Chat - Your AI Learning Coach</a></p><p id="c0cec712-1aed-4429-8ec0-ba86ffe27db5" class=""><a href="https://mindgrasp.ai/">home - Mindgrasp AI</a></p><h3 id="3b72df38-fa6c-4a54-9c13-1632c283fec6" class="">Prompt</h3><p id="83dc32a5-95d3-4837-b482-3cd5a1f6231e" class=""><a href="https://www.maxai.me/prompts?category=All&amp;use_case=All&amp;keyword=">Prompts Examples</a></p><p id="4d231bf6-57fd-4f1f-9bec-ff79f79401a5" class=""><a href="https://promptwave.ai/">Home - PromptWave AI</a></p><p id="33acd47b-7dcf-4b50-af1a-290383c36540" class=""><a href="https://promptbase.com/">PromptBase | Prompt Marketplace: DALL·E, Midjourn…</a></p><p id="8753b4c8-f3e7-4a81-805a-17fbdb73d82d" class=""><a href="https://flowgpt.com/">Best ChatGPT Prompts &amp; AI Prompts Community - Flo…</a></p><p id="5e951a0e-6af7-4487-b438-2d49fe0cfe98" class=""><a href="https://ai.sppinfo.cn/">MidJourney Prompt生成器</a></p><p id="af1cb857-286f-4942-818f-7221da561bee" class=""><a href="https://huggingface.co/spaces/Gustavosta/MagicPrompt-Stable-Diffusion">Stable Diffusion Prompt- a Hugging Face Space by Gustavosta</a></p><h3 id="238149b3-deb2-4c53-b8ca-8d9b916bd970" class="">Travel</h3><p id="90e31c3e-7a9f-4664-b40a-3265eae78e5d" class=""><a href="https://www.ixigo.com/plan">PLAN by ixigo</a></p><p id="5b73efed-9d4e-4869-ab71-9c46914e1568" class=""><a href="https://wanderlog.com/trip-plan-assistant">Plan your perfect trip within seconds – Wanderlog</a></p><p id="44b8d45a-8e70-4fa6-ab00-8ddcf61b22d2" class=""><a href="https://www.giti.ai/en">Giti Multilingual ChatGPT</a></p></div></article></body></html>
